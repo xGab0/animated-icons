@@ -2,27 +2,80 @@
 </script>
 
 <template>
-    <svg id="word" class="cool" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 1200" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
-      <g id="word-u-card" transform="translate(-809.9104 17)" rx="80" ry="80">
-        <rect id="word-s-rect1" class="jesus" width="650" height="200" rx="0" ry="0" transform="translate(1034.410353 215)" fill="#41a5ee"/>
-        <rect id="word-s-rect2" width="650" height="200" rx="0" ry="0" transform="translate(1034.410353 215)" fill="#2b7cd3"/>
-        <rect id="word-s-rect3" width="650" height="200" rx="0" ry="0" transform="translate(1034.410353 415)" fill="#185abd"/>
-        <rect id="word-s-rect4" width="650" height="200" rx="0" ry="0" transform="translate(1034.410353 614)" fill="#103f91"/>
+    <svg id="word" class="big"
+    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 100 100"
+    shape-rendering="geometricPrecision" text-rendering="geometricPrecision"
+    >
+      <symbol id="word-paper-rect-symbol" width="80" height="25">
+        <rect id="word-paper-rect" width="100%" height="100%"/>
+      </symbol>
+
+      <!-- Everything under a white pixel will be visible -->
+      <!-- Everything under a black pixel will be invisible -->
+      <!--g>
+        <svg id="word-u-card">
+          <use href="#word-paper-rect-symbol" x="20" y="0" fill="#41a5ee" />
+          <use href="#word-paper-rect-symbol" x="20" y="25" fill="#2b7cd3" />
+          <use href="#word-paper-rect-symbol" x="20" y="50" fill="#185abd" />
+          <use href="#word-paper-rect-symbol" x="20" y="75" fill="#103f91" />
+        </svg>
+      </g-->
+      <g>
+        <svg id="word-u-card">
+          <use href="#word-paper-rect-symbol" x="20" y="0" fill="#41a5ee" />
+          <use href="#word-paper-rect-symbol" x="20" y="25" fill="#2b7cd3" />
+          <use href="#word-paper-rect-symbol" x="20" y="50" fill="#185abd" />
+          <use href="#word-paper-rect-symbol" x="20" y="75" fill="#103f91" />
+        </svg>
       </g>
-      <g transform="translate(-.5 207)">
-        <svg id="word-u-brand" width="450" height="450" style="border-radius: 34px;">
-          <rect width="450" height="450" rx="0" ry="0" fill="#185abd" stroke-width="0"/>
-          <text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" font-size="400" font-weight="bolder" fill="white">W</text>
+      <g>
+        <svg id="word-u-brand" width="40" height="40" x="0" y="30%">
+          <rect width="100%" height="100%" ry="4" fill="#185abd"/>
+          <text x="50%" y="58%" dominant-baseline="middle" text-anchor="middle" font-size="33" font-weight="bolder" fill="white">W</text>
         </svg>
       </g>
     </svg>
-    <!--img src="@/assets/svg/word.svg" alt="My Happy SVG" width="300" height="300" class="cool"/-->
+    <img src="@/assets/svg/word.svg" alt="My Happy SVG" width="300" height="300" class="cool">
 </template>
 
 <style scoped>
+#word {
+  overflow: visible;
+}
+#word-paper-rect-symbol {
+  overflow: visible;
+}
+#word-u-card {
+  overflow: visible;
+}
+#word-paper-rect {
+  pointer-events: all;
+  transition: all .1s ease-in-out;
+}
+#word-paper-rect:hover {
+  transform-origin: 50% 50%; /* anything other than `0 0` to see the effect */
+  transform-box: fill-box;
+
+  /*animation: scaleheight 1s ease-in-out infinite alternate;*/
+  /*animation: breathePaperCut .3s ease-in-out forwards;*/
+
+  transform: scale3d(1.05, 1.05, 1);
+}
+
+#word-u-brand {
+  filter: drop-shadow(4px 5px 2px rgba(2, 28, 89, 0.579));
+}
+
+@keyframes breathePaperCut {
+  to {
+    transform: scale3d(1.05, 1, 1);
+  }
+}
+
 svg {
   fill: yellow;
-  display: inline-block;
+
 }
 
 #word-u-card {
@@ -34,8 +87,19 @@ svg {
   outline-color: red
 }
 */
-#word-u-brand {
-  filter: drop-shadow(8px 15px 8px rgba(38, 51, 115, 0.4));
+
+
+.paper-card .first {
+  fill: #41a5ee;
+}
+.paper-card .second {
+  fill: #2b7cd3;
+}
+.paper-card .third {
+  fill: #185abd;
+}
+.paper-card .fourth {
+  fill: #185abd;
 }
 
 .jesus:hover {

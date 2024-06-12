@@ -9,3 +9,9 @@ import Word from '@/components/icons/Word.vue';
     <Word />
   </main>
 </template>
+
+<style>
+main {
+  width: 40px;
+}
+</style>
